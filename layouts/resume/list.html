@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>{{ .Page.Title }}</h1>
+{{ .Content }}
+<h1>Experience</h1>
+{{- range (.Data.Pages.ByParam "start-date").Reverse -}}
+    <div class="flex-between">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <i>
+            {{ with .Param "start-date" }}
+                {{ . | dateFormat "Jan 2006" }}
+                    {{ else }}
+                {{  time.Now | dateFormat "Jan 2006" }}
+            {{ end }}
+                -
+            {{ with .Param "end-date" }}
+                {{ . | dateFormat "Jan 2006" }}
+                    {{ else }}
+                {{ "Present" }}
+            {{ end }}
+        </i>
+    </div>
+{{- end -}}
+{{ end }}

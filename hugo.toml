@@ -1,0 +1,32 @@
+baseURL = 'https://jbalila.com/'
+languageCode = 'en-us'
+title = 'Joshua Balila | Portfolio Site'
+theme = 'hugo-theme-console'
+
+[params]
+  # Cutting off the page title to two chars for mobile (console-demo -> co)
+  titleCutting = true
+
+  # Set the animation style -- https://animate.style/
+  # To disable animations, please remove or comment animationStyle parameter
+  animateStyle = "animated zoomIn fast"
+
+  [[params.navlinks]]
+  name = "projects/"
+  url = "projects/"
+  
+  [[params.navlinks]]
+  name = "resume/"
+  url = "resume/"
+
+  # ---
+
+  [[params.logo]]
+  url = 'https://github.com/JBalila'
+  image = 'images/github-mark.png'
+  altText = 'Github'
+
+  [[params.logo]]
+  url = 'https://www.linkedin.com/in/joshuaybalila'
+  image = 'images/linkedin.png'
+  altText = 'LinkedIn'

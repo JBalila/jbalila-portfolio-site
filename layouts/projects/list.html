@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>{{ .Page.Title }}</h1>
+{{ .Content }}
+<div>
+    {{ range sort .Data.Pages "Date" "desc"  }}
+        {{ if and (isset .Params "image") .Params.image }}
+            <a style="width: 100%; display: flex; align-items: center;margin-bottom: 10px;" href="{{ .Permalink }}" title="{{ .Title }}" class="project-image">
+            {{ $image := .Page.Resources.GetMatch .Params.image }}
+            {{ $title := .Page.Title }}
+            {{ $summary := .Page.Params.summary }}
+            {{ with $image }}
+                <div style="width: 30%; height: 25vh; margin-right: 20px;">
+                    <img style="width: 100%; height: 100%; object-fit: contain;" src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
+                </div>
+                <div style="width: 60%; font-size: 18px;">
+                    <p><b>{{ $title }}</b> - {{ $summary }}</p>
+                </div>
+            {{end}}
+            </a>
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}

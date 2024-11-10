@@ -1,0 +1,17 @@
+<div class="footer flex-between">
+    <div>
+        Powered by <a href="https://gohugo.io/">Hugo</a> with <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>.
+    </div>
+    <div style="display: flex;">
+    {{ range .Site.Params.logo }}
+        {{ $image := resources.Get .image }}
+        {{ $altText := resources.Get .altText}}
+        <a href="{{ .url }}" target="_blank" title="{{ $altText }}">
+            {{ with $image }}
+                {{ $thumb := .Resize "50x" }}
+                <img src="{{ $thumb.RelPermalink }}" alt="{{ $altText }}" class="img-responsive">
+            {{end}}
+        </a>
+    {{ end }}
+    </div>
+</div>
